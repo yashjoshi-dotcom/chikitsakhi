@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Style.css'; // Import your custom CSS file
 const image1 = require("./images/section-4.jpeg");
 const image2 = require("./images/section-4.jpeg");
