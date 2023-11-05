@@ -5,11 +5,19 @@ const Chatbot = () => {
 
     const [dat, setdat] = useState([]);
     const [data, setdata] = useState();
-    var i=0;
+    var i=1;
+
+    const handleChange = event => {
+        setdata(event.target.value);
+    
+        console.log('value is:', event.target.value);
+      };
+    
+
     const postData = async (e) => {
         e.preventDefault();
         setdat(oldArray => [...oldArray,data] );
-        console.log(dat);
+        console.log(data);
         const res = await fetch("/chat", {
           method: "POST",
           headers: {
@@ -21,16 +29,25 @@ const Chatbot = () => {
         });
     
         const da = await res.json();
-        setdat(oldArray => [...oldArray,da[0].candidates[0].output] );	
-      };
-    
+        // console.log(da.candidates[0].output);
+        // console.log("hell");
 
+        setdat(oldArray => [...oldArray,da.candidates[0].output] );	
+        // console.log(dat);
+      };
+
+      useEffect(() => {
+        // This code will run whenever myArray is updated.
+        console.log('myArray has been updated:', dat);
+      }, [dat]);
+
+      
     return (
 <div className="flex h-[100vh] w-full flex-col bg-black">
   <div
     className="flex-1 space-y-6 overflow-y-auto rounded-xl bg-slate-200 p-4 text-sm leading-6 text-slate-900 shadow-sm dark:bg-slate-900 dark:text-slate-300 sm:text-base sm:leading-7"
   >
-    {!dat.map((dataa) => {
+    {dat.map((dataa) => {
               return (<>
               {i++%2==0?(
     <div className="flex items-start">
@@ -41,7 +58,7 @@ const Chatbot = () => {
       <div
         className="flex rounded-b-xl rounded-tr-xl bg-slate-50 p-4 dark:bg-slate-800 sm:max-w-md md:max-w-2xl"
       >
-        <p>!{dataa.candidates[0].output}</p>
+        <p>{dataa}</p>
       </div>
     </div>):(
     <div className="flex flex-row-reverse items-start">
@@ -54,7 +71,7 @@ const Chatbot = () => {
         className="flex min-h-[85px] rounded-b-xl rounded-tl-xl bg-slate-50 p-4 dark:bg-slate-800 sm:min-h-0 sm:max-w-md md:max-w-2xl"
       >
         <p>
-        !{dataa.candidates[0].output}
+        {dataa}
         </p>
       </div>
       <div
@@ -172,6 +189,7 @@ const Chatbot = () => {
       type="text"
       className="w-full rounded-lg border border-slate-300 bg-slate-200 p-3 text-sm text-slate-800 shadow-md focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 dark:border-slate-200/10 dark:bg-slate-800 dark:text-slate-200 dark:placeholder-slate-400 dark:focus:border-blue-600 sm:text-base"
       placeholder="Enter prompt"
+      onChange={handleChange}
       value={data}
       rows="1"
       required
