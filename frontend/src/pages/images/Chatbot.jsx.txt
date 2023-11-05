@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import "./Chat.css";
 const Chatbot = () => {
   const [dat, setdat] = useState([]);
-  const [datata, setdatata] = useState();
+  const [data, setdata] = useState();
   var i = 1;
 
   const handleChange = (event) => {
-    setdatata(event.target.value);
+    setdata(event.target.value);
 
     console.log("value is:", event.target.value);
   };
@@ -16,25 +16,22 @@ const Chatbot = () => {
     e.preventDefault();
     setdat((oldArray) => [...oldArray, data]);
     console.log(data);
-    var data=datata;
-    setdatata("");
     const res = await fetch("/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        datata,
+        data,
       }),
     });
-    
+
     const da = await res.json();
     // console.log(da.candidates[0].output);
     // console.log("hell");
-    
+
     setdat((oldArray) => [...oldArray, da.candidates[0].output]);
     // console.log(dat);
-    
   };
 
   useEffect(() => {
@@ -211,7 +208,7 @@ const Chatbot = () => {
               className="w-full rounded-lg border border-slate-300 bg-slate-200 p-3 text-sm text-slate-800 shadow-md focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 dark:border-slate-200/10 dark:bg-slate-800 dark:text-slate-200 dark:placeholder-slate-400 dark:focus:border-blue-600 sm:text-base"
               placeholder="Enter prompt"
               onChange={handleChange}
-              value={datata}
+              value={data}
               rows="1"
               required
             />

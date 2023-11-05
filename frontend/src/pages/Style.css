@@ -37,21 +37,30 @@ body {
     color: rgb(165, 0 , 203) !important;
 }
 .site-content {
-    background-image: url('./images/main\ \(1\).jpg');
+    background-image: url('./images/health.jpg');
     background-attachment: fixed;
     background-size: cover;
 }
 .site-title{
     margin-top: 30%;
     margin-bottom: 6%;
-    color: rgb(165, 0 , 203) !important;
+    text-shadow: 0 0 25px aliceblue;
+    color: rgb(203 93 0) !important;
     font-family: 'Archivo Black', sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 50px;
 }
 .site-desc {
-    font-size: 18px;
+    font-size: 21px;
+    width: 108%;
+    padding-bottom: 5%;
+    padding-top: 3%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('./images/pi-removebg-preview.png');
+    color: black;
+    font-weight: 400;
 }
 .site-btn1{
     margin-left: 25%;
@@ -78,9 +87,17 @@ body {
 }
 
 /* section-1 */
+.section-1{
+    background-image: url('./images/bg.jpg');
+    background-size: contain;
+}
+.section-3{
+    background-image: url('./images/bg.jpg');
+    background-size: contain;
+}
 
 .section-1 .heading-1{
-    margin-top: 8%;
+    padding-top: 8%;
 }
 .section-1 .heading-2 {
     margin-bottom: 5%;
@@ -95,31 +112,35 @@ body {
     height: 13rem;
 }
 .section-1 .card-text, .para-1{
+    min-height: 50%;
     color: rgba(0,0,0, 0.59);
 }
 .section-1 {
-    margin-bottom: 8%;
+    padding-bottom: 8%;
 }
 .card {
     width: 20rem;
+    /* box-shadow: 15px 15px 15px rgb(113, 111, 111), 0 0 5px black; */
 }
 /* section-2 */
 
 .section-2 .container-fluid{
-    background-image: url('./images/yellow-des.jpg');
+    background-image: url('./images/da1.jpg');
     background-attachment: fixed;
     background-size: cover;
 }
 .section-2 .heading-1{
     margin-top: 20%;
     margin-bottom: 4%;
-    width: 80%;
-    color: rgb(165, 0 , 203);
+    margin-right: 10%;
+    width: 100%;
+    color: rgb(255, 255, 255);
 }
 .section-2 .para {
     width: 80%;
-    color: black;
-    margin-bottom: 7%;
+    color: rgb(228, 228, 228);
+    margin-bottom: 17%;
+    /* font-weight: 700; */
 }
 .section-2 .btn {
     margin-bottom: 15%;
@@ -133,7 +154,7 @@ body {
 /* section -3 */
 
 .section-3 {
-    margin-top: 6%;
+    padding-top: 6%;
 }
 .section-3 .heading-1{
     color: rgb(165, 0 , 203);
@@ -163,7 +184,7 @@ body {
 }
 
 .section-4 .col-md-7 {
-    margin-top: 10%;
+    padding-top: 10%;
     margin-bottom: 10%;
   
 }

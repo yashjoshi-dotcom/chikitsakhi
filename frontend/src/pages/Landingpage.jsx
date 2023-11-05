@@ -1,15 +1,30 @@
 import React from 'react';
-
+// import 'font-awesome/css/font-awesome.min.css';
 import './Style.css'; // Import your custom CSS file
+import { Navigate } from 'react-router-dom/dist/umd/react-router-dom.development';
+import { useNavigate } from 'react-router-dom/dist/umd/react-router-dom.development';
 const image1 = require("./images/section-4.jpeg");
-const image2 = require("./images/section-4.jpeg");
-const image3 = require("./images/section-4.jpeg");
+const image2 = require("./images/map2.png");
+const image3 = require("./images/mobile-chat-760.jpg");
+const image4 = require("./images/reward.jpg");
 
 const Landingpage = () => {
+    const navigate = useNavigate();
+    const handleScrollDown = () => {
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollDistance = documentHeight * 0.58; // 150% of document height
+        window.scrollTo({
+          top: scrollDistance,
+          behavior: 'smooth', // You can use 'auto' for instant scroll
+        });
+      };
+      const handleclick=()=>{
+        navigate("/chatbot");
+      }
   return (
     <div>
       <header>
-        <nav className="navbar navbar-expand-lg navbar-light">
+        <nav className="navbar navbar-expand-lg navbar-dark">
           <a href="#" className="navbar-brand p-3">
             Chikitsakhi
           </a>
@@ -33,12 +48,12 @@ const Landingpage = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="./Chatbot">
                   ChatBot
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="#" onClick={handleScrollDown}>
                   Services
                 </a>
               </li>
@@ -49,7 +64,7 @@ const Landingpage = () => {
               </li>
             </ul>
             <form className="form-inline my-2 pr-3 my-lg-0">
-              <button className="btn menu-right-btn border" type="submit">
+              <button className="btn menu-right-btn border" type="submit" onClick={handleclick}>
                 Request A Chat
               </button>
             </form>
@@ -64,11 +79,11 @@ const Landingpage = () => {
               <div className="d-flex flex-column text-center">
                 <h1 className="site-title">Chikatsakhi</h1>
                 <p className="site-desc">
-                  Live your Life to the Fullest, Zindagi na Milegi Dubara
+                  your personalized healthcare solution one chat away
                 </p>
                 <div className="">
                   {/* <input type="button" value="Learn More" className="btn site-btn1 px-4 py-3 mr-4 btn-primary" /> */}
-                  <input type="button" value="Services" className="btn site-btn2 px-4 py-3 mr-4 btn-light" />
+                  <input type="button" value="Services" onClick={handleclick} className="btn site-btn2 px-4 py-3 mr-4 btn-light" />
                 </div>
               </div>
             </div>
@@ -88,39 +103,34 @@ const Landingpage = () => {
             <div className="row justify-content-center text-center">
               <div className="col-md-4">
                 <div className="card">
-                  <img src="./images/responsive.jpeg" alt="image" className="card-image-top" />
+                  <img src={image2} alt="image" className="card-image-top" />
                   <div className="card-body">
                     <h4 className="card-title">Data Analysis & Visualization</h4>
                     <p className="card-text">
-                      It is a long established fact that a reader will be distracted by the readable content of a page when
-                      looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-                      of letters,
+                    A user-driven data visualization dashboard creates scatter plots from collected data, pinpointing healthcare pain points for targeted problem-solving and improved patient care outcomes.
                     </p>
                   </div>
                 </div>
               </div>
               <div className="col-md-4">
                 <div className="card">
-                  <img src="./images/ui &ux.png" alt="image" className="card-image-top" />
+                  <img src={image3} alt="image" className="card-image-top" />
                   <div className="card-body">
                     <h4 className="card-title">Personalized Healtcare Assistance</h4>
                     <p className="card-text">
-                      It is a long established fact that a reader will be distracted by the readable content of a page when
-                      looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-                      of letters,
+                    
+A machine learning-powered chatbot, connected to AbhaID for patient medical histories, provides comprehensive healthcare support. By accessing past records, it offers personalized assistance.
                     </p>
                   </div>
                 </div>
               </div>
               <div className="col-md-4">
                 <div className="card">
-                  <img src="./images/flexible.jpeg" alt="image" className="card-image-top" />
+                  <img src={image4} alt="image" className="card-image-top" />
                   <div className="card-body">
-                    <h4 className="card-title">Flexible</h4>
+                    <h4 className="card-title">Rewards and Incentive Solution</h4>
                     <p className="card-text">
-                      It is a long established fact that a reader will be distracted by the readable content of a page when
-                      looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-                      of letters,
+                    "Unleash your potential on our website, where exciting rewards await those who embrace challenges. Complete tasks, unlock treasures, and turn your efforts into amazing prizes. The journey begins now!"
                     </p>
                   </div>
                 </div>
@@ -133,11 +143,13 @@ const Landingpage = () => {
           <div className="container-fluid">
             <div className="d-flex justify-content-end">
               <div className="d-flex flex-column m-4">
-                <h1 className="heading-1">Like & Share Your Love</h1>
+                <h1 className="heading-1">Data Visualization</h1>
                 <p className="para">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  shows insight based on the large data collected and provide solution.
                 </p>
+                <a href="">
                 <input type="button" name="show" value="Show" className="btn btn-light" />
+                </a>
               </div>
             </div>
           </div>
@@ -223,7 +235,7 @@ const Landingpage = () => {
         <div className="section-4">
           <div className="container-fluid p-0">
             <div className="row">
-              <div className="col-md-5">
+              <div className="col-md-5 ">
                 <img src={image1} alt="section-4" width="100%" height="100%" />
               </div>
               <div className="col-md-7">
